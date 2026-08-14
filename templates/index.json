@@ -4,7 +4,7 @@
       "type": "purelane-hero",
       "settings": {
         "heading": "Pure Beauty from Nature",
-        "subheading": "Discover our curated collection of natural and organic wellness products",
+        "subheading":"subheading": "<p>Discover our curated collection of natural and organic wellness products</p>",
         "button_label_1": "Shop Now",
         "button_link_1": "/collections/all",
         "button_style_secondary_1": false,
