@@ -1,0 +1,264 @@
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+
+  .purelane-promo {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 300px;
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.1) 100%);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  .purelane-promo__background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.4;
+  }
+
+  .purelane-promo__content {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    max-width: 600px;
+    padding: 3rem 2rem;
+  }
+
+  .purelane-promo__label {
+    font-size: 0.875rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    opacity: 0.8;
+    margin-bottom: 0.5rem;
+  }
+
+  .purelane-promo__heading {
+    font-size: clamp(1.75rem, 4vw, 2.75rem);
+    font-weight: 300;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+  }
+
+  .purelane-promo__description {
+    font-size: 1.05rem;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+    opacity: 0.95;
+  }
+
+  .purelane-promo__buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .purelane-promo__button {
+    padding: 0.875rem 2.25rem;
+    font-size: 0.95rem;
+    white-space: nowrap;
+  }
+
+  @media screen and (max-width: 749px) {
+    .purelane-promo {
+      min-height: 250px;
+    }
+
+    .purelane-promo__content {
+      padding: 2rem 1.5rem;
+    }
+
+    .purelane-promo__heading {
+      font-size: 1.5rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .purelane-promo__description {
+      font-size: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .purelane-promo__buttons {
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .purelane-promo__button {
+      width: 100%;
+    }
+  }
+{%- endstyle -%}
+
+<div class="color-{{ section.settings.color_scheme }} gradient isolate">
+  <div class="section-{{ section.id }}-padding page-width">
+    <div class="purelane-promo{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+      {%- if section.settings.background_image != blank -%}
+        {{
+          section.settings.background_image
+          | image_url: width: 1400
+          | image_tag:
+            class: 'purelane-promo__background',
+            loading: 'lazy'
+        }}
+      {%- endif -%}
+
+      <div class="purelane-promo__content">
+        {%- if section.settings.label != blank -%}
+          <p class="purelane-promo__label">
+            {{ section.settings.label }}
+          </p>
+        {%- endif -%}
+
+        {%- if section.settings.heading != blank -%}
+          <h2 class="purelane-promo__heading inline-richtext">
+            {{ section.settings.heading }}
+          </h2>
+        {%- endif -%}
+
+        {%- if section.settings.description != blank -%}
+          <p class="purelane-promo__description">
+            {{ section.settings.description }}
+          </p>
+        {%- endif -%}
+
+        {%- if section.settings.button_label_1 != blank or section.settings.button_label_2 != blank -%}
+          <div class="purelane-promo__buttons">
+            {%- if section.settings.button_label_1 != blank -%}
+              <a
+                {% if section.settings.button_link_1 != blank %}
+                  href="{{ section.settings.button_link_1 }}"
+                {% else %}
+                  role="link" aria-disabled="true"
+                {% endif %}
+                class="button purelane-promo__button{% if section.settings.button_style_secondary_1 %} button--secondary{% endif %}"
+              >
+                {{ section.settings.button_label_1 }}
+              </a>
+            {%- endif -%}
+
+            {%- if section.settings.button_label_2 != blank -%}
+              <a
+                {% if section.settings.button_link_2 != blank %}
+                  href="{{ section.settings.button_link_2 }}"
+                {% else %}
+                  role="link" aria-disabled="true"
+                {% endif %}
+                class="button purelane-promo__button{% if section.settings.button_style_secondary_2 %} button--secondary{% endif %}"
+              >
+                {{ section.settings.button_label_2 }}
+              </a>
+            {%- endif -%}
+          </div>
+        {%- endif -%}
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Purelane Promotional CTA",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "background_image",
+      "label": "Background image"
+    },
+    {
+      "type": "text",
+      "id": "label",
+      "label": "Label",
+      "default": "Special Offer"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "default": "Limited Time Promotion",
+      "label": "Heading"
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "Description"
+    },
+    {
+      "type": "text",
+      "id": "button_label_1",
+      "default": "Shop Collection",
+      "label": "Button label 1"
+    },
+    {
+      "type": "url",
+      "id": "button_link_1",
+      "label": "Button link 1"
+    },
+    {
+      "type": "checkbox",
+      "id": "button_style_secondary_1",
+      "default": false,
+      "label": "Use secondary style for button 1"
+    },
+    {
+      "type": "text",
+      "id": "button_label_2",
+      "label": "Button label 2"
+    },
+    {
+      "type": "url",
+      "id": "button_link_2",
+      "label": "Button link 2"
+    },
+    {
+      "type": "checkbox",
+      "id": "button_style_secondary_2",
+      "default": true,
+      "label": "Use secondary style for button 2"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Top padding",
+      "default": 44
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Bottom padding",
+      "default": 44
+    }
+  ]
+}
+{% endschema %}

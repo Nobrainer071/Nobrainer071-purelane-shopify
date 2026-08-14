@@ -1,51 +1,43 @@
 {
   "sections": {
-    "image_banner": {
-      "type": "image-banner",
-      "blocks": {
-        "heading": {
-          "type": "heading",
-          "settings": {
-            "heading": "Browse our latest products",
-            "heading_size": "h0"
-          }
-        },
-        "button": {
-          "type": "buttons",
-          "settings": {
-            "button_label_1": "Shop all",
-            "button_link_1": "shopify://collections/all",
-            "button_style_secondary_1": true,
-            "button_label_2": "",
-            "button_link_2": "",
-            "button_style_secondary_2": false
-          }
-        }
+    "announcement_bar": {
+      "type": "announcement-bar",
+      "disabled_on": {
+        "groups": ["header"]
       },
-      "block_order": [
-        "heading",
-        "button"
-      ],
       "settings": {
-        "image_overlay_opacity": 40,
-        "image_height": "large",
-        "desktop_content_position": "bottom-center",
-        "show_text_box": false,
-        "image_behavior": "none",
-        "desktop_content_alignment": "center",
-        "color_scheme": "scheme-3",
-        "mobile_content_alignment": "center",
-        "stack_images_on_mobile": false,
-        "show_text_below": false
+        "announcement_text": "Welcome to Purelane - Pure Beauty, Pure Nature",
+        "announcement_text_mobile": "Welcome to Purelane",
+        "color_scheme": "scheme-2"
       }
     },
-    "featured_collection": {
+    "hero": {
+      "type": "purelane-hero",
+      "settings": {
+        "heading": "Pure Beauty from Nature",
+        "subheading": "Discover our curated collection of natural and organic wellness products",
+        "button_label_1": "Shop Now",
+        "button_link_1": "shopify://collections/all",
+        "button_style_secondary_1": false,
+        "button_label_2": "Learn Our Story",
+        "button_link_2": "shopify://pages/about",
+        "button_style_secondary_2": true,
+        "image_height": "large",
+        "image_overlay_opacity": 30,
+        "image_behavior": "none",
+        "desktop_content_alignment": "center",
+        "mobile_content_alignment": "center",
+        "color_scheme": "scheme-1",
+        "show_text_box": true
+      }
+    },
+    "featured_products": {
       "type": "featured-collection",
       "settings": {
-        "title": "Featured products",
-        "heading_size": "h2",
-        "description": "",
-        "show_description": false,
+        "title": "Featured Products",
+        "heading_size": "h1",
+        "description": "Explore our bestselling natural beauty and wellness essentials",
+        "show_description": true,
         "description_style": "body",
         "collection": "all",
         "products_to_show": 8,
@@ -64,12 +56,162 @@
         "quick_add": "none",
         "columns_mobile": "2",
         "padding_top": 44,
-        "padding_bottom": 36
+        "padding_bottom": 44
+      }
+    },
+    "benefits": {
+      "type": "purelane-benefits",
+      "blocks": {
+        "benefit_1": {
+          "type": "benefit",
+          "settings": {
+            "icon": "🌿",
+            "title": "Pure Ingredients",
+            "description": "Carefully selected natural and organic ingredients for optimal results"
+          }
+        },
+        "benefit_2": {
+          "type": "benefit",
+          "settings": {
+            "icon": "🐰",
+            "title": "Cruelty-Free",
+            "description": "Never tested on animals, always ethically and sustainably sourced"
+          }
+        },
+        "benefit_3": {
+          "type": "benefit",
+          "settings": {
+            "icon": "♻️",
+            "title": "Sustainable",
+            "description": "Eco-friendly packaging and carbon-neutral shipping available"
+          }
+        },
+        "benefit_4": {
+          "type": "benefit",
+          "settings": {
+            "icon": "✓",
+            "title": "Results Driven",
+            "description": "Clinically tested formulations that deliver visible, lasting results"
+          }
+        }
+      },
+      "block_order": [
+        "benefit_1",
+        "benefit_2",
+        "benefit_3",
+        "benefit_4"
+      ],
+      "settings": {
+        "title": "Why Choose Purelane",
+        "description": "We believe in transparency, quality, and results",
+        "heading_size": "h1",
+        "color_scheme": "scheme-1",
+        "padding_top": 44,
+        "padding_bottom": 44
+      }
+    },
+    "brand_story": {
+      "type": "purelane-brand-story",
+      "settings": {
+        "label": "Our Story",
+        "heading": "Born from Nature, Crafted with Care",
+        "description": "<p>Purelane was founded with a simple mission: to create the finest natural and organic beauty products without compromise. Each product is formulated by our team of experts using only the purest ingredients sourced from sustainable farms around the world. We believe that true beauty comes from nature, and that everyone deserves access to products that are safe, effective, and kind to our planet.</p>",
+        "button_label": "Discover More",
+        "button_link": "shopify://pages/about",
+        "button_style_secondary": false,
+        "layout": "image_left",
+        "color_scheme": "scheme-1",
+        "padding_top": 44,
+        "padding_bottom": 44
+      }
+    },
+    "collection_grid": {
+      "type": "featured-collection",
+      "settings": {
+        "title": "Shop by Collection",
+        "heading_size": "h1",
+        "description": "Browse our carefully curated collections",
+        "show_description": true,
+        "description_style": "body",
+        "collection": "all",
+        "products_to_show": 6,
+        "columns_desktop": 3,
+        "color_scheme": "scheme-1",
+        "full_width": false,
+        "show_view_all": true,
+        "view_all_style": "solid",
+        "enable_desktop_slider": false,
+        "swipe_on_mobile": false,
+        "image_ratio": "square",
+        "image_shape": "default",
+        "show_secondary_image": false,
+        "show_vendor": false,
+        "show_rating": false,
+        "quick_add": "none",
+        "columns_mobile": "2",
+        "padding_top": 44,
+        "padding_bottom": 44
+      }
+    },
+    "promotion": {
+      "type": "purelane-promo",
+      "settings": {
+        "label": "Limited Time",
+        "heading": "Spring Collection Launch",
+        "description": "Discover our new selection of rejuvenating spring essentials. Enjoy 15% off your first order.",
+        "button_label_1": "Shop Spring Collection",
+        "button_link_1": "shopify://collections/all",
+        "button_style_secondary_1": false,
+        "button_label_2": "View Details",
+        "button_link_2": "#",
+        "button_style_secondary_2": true,
+        "color_scheme": "scheme-3",
+        "padding_top": 44,
+        "padding_bottom": 44
+      }
+    },
+    "newsletter": {
+      "type": "newsletter",
+      "blocks": {
+        "heading": {
+          "type": "heading",
+          "settings": {
+            "heading": "Subscribe for exclusive offers",
+            "heading_size": "h2"
+          }
+        },
+        "paragraph": {
+          "type": "paragraph",
+          "settings": {
+            "text": "Be the first to know about new launches, special promotions, and wellness tips from the Purelane team."
+          }
+        },
+        "email_form": {
+          "type": "email_form",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "heading",
+        "paragraph",
+        "email_form"
+      ],
+      "settings": {
+        "full_width": false,
+        "color_scheme": "scheme-1",
+        "padding_top": 44,
+        "padding_bottom": 44
       }
     }
   },
   "order": [
-    "image_banner",
-    "featured_collection"
+    "announcement_bar",
+    "hero",
+    "featured_products",
+    "benefits",
+    "brand_story",
+    "collection_grid",
+    "promotion",
+    "newsletter"
   ]
 }
