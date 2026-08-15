@@ -1,21 +1,31 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "hero": {
       "type": "purelane-hero",
       "settings": {
+        "image": "shopify://shop_images/organic-skincare_large_57d48a47-0e8b-4ff3-ba89-aaeba35b7def.webp",
         "heading": "Pure Beauty from Nature",
         "subheading": "<p>Discover our curated collection of natural and organic wellness products.</p>",
+        "image_height": "large",
+        "image_overlay_opacity": 30,
+        "image_behavior": "none",
+        "desktop_content_alignment": "center",
+        "mobile_content_alignment": "center",
         "button_label_1": "Shop Now",
         "button_link_1": "/collections/all",
         "button_style_secondary_1": false,
         "button_label_2": "Learn Our Story",
         "button_link_2": "/pages/about",
         "button_style_secondary_2": true,
-        "image_height": "large",
-        "image_overlay_opacity": 30,
-        "image_behavior": "none",
-        "desktop_content_alignment": "center",
-        "mobile_content_alignment": "center",
         "color_scheme": "scheme-1",
         "show_text_box": true,
         "show_text_below": false
@@ -159,8 +169,8 @@
         "email_form"
       ],
       "settings": {
-        "full_width": false,
         "color_scheme": "scheme-1",
+        "full_width": false,
         "padding_top": 44,
         "padding_bottom": 44
       }
